@@ -1,0 +1,519 @@
+<%# ヘッダー %>
+<header class ="py-4">
+  <div class ="container text-center ">
+    <h1><a href ="#" ><img src ="assets/site.png" alt="イラスト屋"></a></h1>
+  </div>
+  
+   <nav class="font-weight-bold text-right">
+    <% if user_signed_in? %>
+        <strong class=""><%= link_to current_user.username, pages_show_path %></strong>
+        <%= link_to 'プロフィール変更', edit_user_registration_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <% else %>
+        <div class="ml-3">
+        <%= link_to 'サインアップ', new_user_registration_path %>
+        </div>
+        <div class="mr-3">
+        <%= link_to 'ログイン', new_user_session_path %>
+        </div>
+    <% end %>
+  </nav>
+</header>
+<%# ナビバー %>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#">
+    <img src="assets/brand.jpg" width="30" height="30" alt="">
+  </a>
+    <%# 切り替えボタン %>
+    <button class ="navbar-toggler" type ="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+  <%# ナビゲーション %>
+  <div class ="collapse navbar-collapse" id="navbar-content">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active" id="1">
+      <a class="nav-link " href="#"> TOP <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link " href="#about">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#menu">Menu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#coupon">Coupon</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >Information</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#shop">Shop</a>
+        <a class="dropdown-item" href="#access">Access</a>
+      </div>
+    </li>
+  </ul>
+  <div data-spy="scroll" data-target="#navbar-content" data-offset="0">
+</div>
+  <%# 右側メニュー %>
+  <ul class="navbar-nav">
+    <li class ="nav-item">
+      <a href="contact.html" class="nav-link btn btn-danger">Contact</a>
+    </li>
+    
+  </ul>
+  </div>
+  </div>
+  <%# /サブコンポーネント %>
+</nav>
+<%# スライド %>
+<main>
+
+<div class ="py-4">
+  <div class="container">
+    <div id="main_visual" class="carousel slide carousel-fade" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#main_visual" data-slide-to="0" class="active"></li>
+        <li data-target="#main_visual" data-slide-to="1"></li>
+        <li data-target="#main_visual" data-slide-to="2"></li>
+       </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item text-center active">
+          <img class="img-fluid" src="assets/slide1.png" alt="カタカタ中">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class=" text-dark text-left ">パソコンカタカタ・・・</h2>
+            <p class=" text-danger text-left ml-4">マジでbootstrap便利やな</p>
+          </div>
+        </div>
+        <div class="carousel-item text-center ">
+          <img class="img-fluid" src="assets/slide2.png" alt="カタカタ中">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item text-center">
+          <img class="img-fluid" src="assets/slide3.png" alt="カタカタ中">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#main_visual" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#main_visual" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# コンテンツ１ %>
+
+    <div class ="py-4">
+      <section id="news">
+        <div class="container">
+          <div class="row">
+            <div class= "col-md-2">
+              <h3>NEWS</h3>
+            </div>
+
+            <div class="col-md-10">
+              <dl class="row">
+                <dt class="col-md-3">2019年11月11日</dt>
+                <dd class="col-md-9">特別クーポン配付中</dd>
+                <dt class="col-md-3">2019年12月12日</dt>
+                <dd class="col-md-9">スペシャルメニュー始めました</dd>
+                <dt class="col-md-3">2019年1月1日</dt>
+                <dd class="col-md-9">閉店しました</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+ <%# コンテンツ2  %>
+
+    <div class="py-4 bg-light">
+      <section id="about">
+        <div class="container">
+      <%# 上段 %>
+          <div class="row  mb-4">
+            <div class="col-md-8 mb-3">
+              <h3 class="mb-3">いらすとやについて</h3>
+              <p>いらすとやとはネット上でフリーダウンロード出来る画像・アイコンサイト。著作権に引っかからないので、誰でも安心してそれらを使うことが出来ます。また、ニコニコ動画サイトや最近では、youtubeなどでも使われている場面が多くなりました。皆さんも是非使ってみましょう！</p>
+              <p>いらすとやはあらゆる場面にて万能な素材であり、あなたのサイト作成を助けてくれるでしょう。</p>
+            </div>
+            <div class="col-md-4 ">
+              <img src="assets/yaruki.png" alt="明日を目指す人" class="img-fluid">
+            </div>
+          </div>
+          <%# /上段 %>
+          <%# 下段 %>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <img src="assets/yaruki_nasi.png" alt="やる気ない" class="img-fluid">
+                  <div class="card-body d-flex justify-content-between">
+                    <h4 class="card-title">無気力</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal01"> <%# ここで外部に作ったモーダルをどこに当てるかを設定している %>
+                      詳しくみる
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <img src="assets/note.png" alt="黒歴史" class="img-fluid">
+                  <div class="card-body d-flex justify-content-between">
+                    <h4 class="card-title">黒歴史</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal02">
+                      詳しくみる
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <img src="assets/torroko_tenraku.png" alt="トロッコ" class="img-fluid">
+                  <div class="card-body d-flex justify-content-between">
+                    <h4 class="card-title">道を外れる</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal03">
+                      詳しくみる
+                    </button>
+                  </div>
+                </div>
+              </div>
+          </div>
+      <%# /下段 %>
+      <%# モーダル %>
+          <div class="modal fade" id="modal01" tabindex="-1" role="dialog" aria-labelledby="modal01-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal01-label">やる気がでない</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-center"><img alt="#" src="assets/yaruki_nasi.png" class="img-fluid"></p>
+                  <p>やる気のない時は誰にでもありますよね。</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="modal02" tabindex="-1" role="dialog" aria-labelledby="modal01-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal02-label">黒歴史</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-center"><img alt="#" src="assets/note.png" class="img-fluid"></p>
+                  <p>黒歴史は誰にでもありますよね。</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="modal03" tabindex="-1" role="dialog" aria-labelledby="modal01-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal01-label">世の中うまく行かない</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-center"><img alt="#" src="assets/torroko_tenraku.png" class="img-fluid"></p>
+                  <p>世の中自分の思い通りにいかないことは誰にでもありますよね。</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  <%# コンテンツ３ %>
+  <%# 上部 %>
+  <div class="py-4">
+    <section id="menu">
+      <div class="container">
+        <h3 class="mb-3">Menu</h3>
+        <p>上記に当てはまるあなたへ特別メニューを用意しました。また、その他のメニューに関しては
+        <a href="#">詳細ページ</a>にて紹介しております。</p>
+
+        <%# タブナビ %>
+        <div class="nav nav-tabs" id="tab-menus" role="tablist"><%# ここでタブ作りました内容はこの後 %>
+          <a class="nav-item nav-link active" id="tab-menu01" data-toggle="tab" href="#panel-menu01" role="tab" aria-controls="panel-menu01" aria-selected="true" >無気力</a>
+          <a class="nav-item nav-link " id="tab-menu02" data-toggle="tab" href="#panel-menu02" role="tab" aria-controls="panel-menu02" aria-selected="true" >黒歴史</a>
+          <a class="nav-item nav-link " id="tab-menu03" data-toggle="tab" href="#panel-menu03" role="tab" aria-controls="panel-menu03" aria-selected="true" >トロッコ</a>
+          <a class="nav-item nav-link " id="tab-menu04" data-toggle="tab" href="#panel-menu04" role="tab" aria-controls="panel-menu04" aria-selected="true" >その他</a>
+        </div>
+
+        <%# パネル詳細 %>
+        <div class="tab-content" id="panel-menus">
+          <div class="tab-pane fade show active border border-top-0" id="panel-menu01" role="tabpane!" aria-labelledby="tab-menu01">
+            <div class="row p-3">
+              <div class="col-md-7 order-md-2">
+                <h4>やる気アップコース</h4>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th>アニメをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>youtubeをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>神のおつげを聞く</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>寝る</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-5 ">
+                <div class="img_cog ml-5 mt-4">
+                  <img src="assets/satori.png " alt="やる気コース" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade border border-top-0" id="panel-menu02" role="tabpane!" aria-labelledby="tab-menu02">
+            <div class="row p-3">
+              <div class="col-md-7 order-md-2">
+                <h4>黒歴史抹消コース</h4>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th>ノートを迷路で埋め尽くす</th>
+                      <td> 3000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>youtubeをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>神のおつげを聞く</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>寝る</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-5 ">
+                <div class="img_cog ml-5 mt-4">
+                  <img src="assets/shiro_note.png " alt="黒歴史抹消コース" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade border border-top-0" id="panel-menu03" role="tabpane!" aria-labelledby="tab-menu03">
+            <div class="row p-3">
+              <div class="col-md-7 order-md-2">
+                <h4>人生大逆転コース</h4>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th>体操選手を目指す</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>youtubeをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>神のおつげを聞く</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>寝る</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-5 ">
+                <div class="img_cog ml-5 mt-4">
+                  <img src="assets/para.png " alt="やる気コース" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade border border-top-0" id="panel-menu04" role="tabpane!" aria-labelledby="tab-menu04">
+            <div class="row p-3">
+              <div class="col-md-7 order-md-2">
+                <h4>働きたくないでござる</h4>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th>アニメをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>youtubeをみる</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>神のおつげを聞く</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                    <tr>
+                      <th>寝る</th>
+                      <td> 1000円/時</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-5 ">
+                <div class="img_cog ml-5 mt-4">
+                  <img src="assets/sabori-mann.png " alt="やる気コース" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </div>
+
+  <%# コンテンツ４ %>
+
+  <div class="py-4 bg-light">
+    <section id="coupon">
+      <div class="container">
+        <h3 class="text-center mb-3">Coupon</h3>
+        <div class="card text-center text-dark w-75 mx-auto">
+          <div class="card-header bg-success text-white">
+            初回いらすとや  特別クーポン
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">全てのコースを受ける方には、５０％引きにてご提供します</h5>
+            <p class="card-text text-center">先着１０万名様まで！スタッフにご提示ください。</p> 
+          </div>
+          <div class="card-footer bg-success text-white">
+           クーポンコード：IRAIRAST
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<%# コンテンツ５ %>
+
+  <div class="py-4">
+    <section id="infomation">
+      <div class="container">
+        <h3>Infomation</h3>
+        <p>いらすとや本社は東京都杉並区にあります。大自然はありませんが、閑静な住宅街があり</p>
+        <p>とても過ごしやすい場所なので、時と精神の部屋的な気持ちになれます。</p>
+        <div class="row">
+          <div class="col-md-6">
+            <section id="shop">
+              <h4 class="mb-3 mt-3">Shop</h4>
+              <%# 店舗情報表 %>
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <th>店名</th>
+                    <td>いらすとや</td>
+                  </tr>
+                  <tr>
+                    <th>住所</th>
+                    <td>〒168-0083 東京都杉並区久我山宮前１−５−３</td>
+                  </tr>
+                  <tr>
+                    <th>営業時間</th>
+                    <td>AM11:00~PM2:00</td>
+                  </tr>
+                  <tr>
+                    <th>雰囲気金額</th>
+                    <td>いらすと１枚 ２００円</td>
+                  </tr>
+                  <tr>
+                    <th>定休日</th>
+                    <td>月曜日、火曜日、水曜日、木曜日、金曜日、祝日</td>
+                  </tr>
+                  <tr>
+                    <th>クレジットカード</th>
+                    <td>利用可</td>
+                  </tr>
+                  <tr>
+                    <th>駐車場</th>
+                    <td>なし</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <div class="col-md-6">
+            <section id="access">
+              <h4 class="mb-3 mt-3">Access</h4>
+              <%# アクセスマップ %>
+              <div class="embed-responsive embed-responsive-4by3">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2197296272275!2d139.69451411555474!3d35.6715912381073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb479620a33%3A0x34bcc78ce7f8bf3e!2z5Luj44CF5pyo5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1573026514121!5m2!1sja!2sjp" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+              </div>
+              <p class="mt-5">京王井の頭線 久我山駅から徒歩12分</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="py-4 bg-dark text-light">
+  <div class="container text-center">
+    <ul class="nav justify-content-center mb-3">
+      <li class="nav-item">
+        <a class="nav-link" href="#top">Top</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#menu">Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#coupon">Coupon</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#infomation">Infomation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+    </ul>
+      <p><small>Copyright &copy;2019 いらすとや, All Rights Reserved.</small></p>
+  </div>
+</footer>
+
+
+
