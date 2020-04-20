@@ -1,24 +1,21 @@
-# README
+# サイト概要
+レスポンシブ対応化とビュー上に様々な仕様を盛り込んだ店舗サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト機能
+・ナビバー
+・スライド
+・モーダル
+・タブナビ・パネル詳細
+・アクセスマップ
 
-Things you may want to cover:
+# 主要技術
+使用言語
+Ruby
+使用フレームワーク
+Ruby on Rails5
+Bootstrap4
+使用プラットフォーム
+heroku
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
